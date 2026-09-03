@@ -366,7 +366,7 @@ textarea {
   width: 100%;
   margin: 0;
   padding: calc(28px + env(safe-area-inset-top, 0px)) var(--huelli-inset-sheet) 72px;
-  background: var(--huelli-gradient-hero);
+  background: var(--huelli-gradient-cta);
   border-radius: 0;
   color: var(--huelli-color-on-primary);
 }
