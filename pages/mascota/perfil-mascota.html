@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Ficha pública de mascota — Huelli MVP." />
+  <title>Luna · HU-0001 · Huelli</title>
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/mvp.css?v=mvp-only" />
+</head>
+<body class="font-sans mvp-app">
+  <div class="mvp-shell" style="padding-top:8px">
+    <a id="fichaBack" class="page-back mvp-page-back mvp-touch-target" href="../../index.html" aria-label="Volver al mapa de pantallas">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg>
+    </a>
+
+    <article class="mvp-public-hero">
+      <img id="petPhoto" class="mvp-public-photo" src="../../assets/mascotas/luna.jpg" alt="Luna" />
+      <header class="mvp-public-pet-header">
+        <div class="mvp-public-title-row">
+          <div class="mvp-public-pet-heading">
+            <p id="petCode" class="mvp-public-pet-code">HU-0001</p>
+            <h1 class="mvp-public-pet-name">
+              <span id="petName">Luna</span>
+              <span id="petSexIcon" class="mvp-public-sex-icon" aria-hidden="true">
+                <svg class="mvp-sex-icon-female" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="9" r="5"/>
+                  <path d="M12 14v7"/>
+                  <path d="M9 18h6"/>
+                </svg>
+                <svg class="mvp-sex-icon-male" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" hidden>
+                  <circle cx="10" cy="14" r="5"/>
+                  <path d="M19 5l-5.4 5.4"/>
+                  <path d="M14 5h5v5"/>
+                </svg>
+              </span>
+            </h1>
+          </div>
+          <span id="petBadge" class="mvp-status-badge is-shelter">En albergue</span>
+        </div>
+      </header>
+      <div class="mvp-public-body">
+        <ul class="mvp-meta-list" aria-label="Datos de la mascota">
+          <li><strong>Edad</strong><span id="petEdad">8 meses</span></li>
+          <li><strong>Raza</strong><span id="petRaza">Mestiza</span></li>
+          <li><strong>Carácter</strong><span id="petCaracter">Tranquilo, Sociable</span></li>
+          <li><strong>Albergue</strong><span id="petAlbergue">Albergue ABC</span></li>
+          <li id="petTutorRow" hidden><strong>Tutor</strong><span id="petTutor">—</span></li>
+        </ul>
+
+        <div id="petCuentaConBlock" class="mvp-notes mvp-cuenta-con">
+          <h2>Cuenta con</h2>
+          <ul id="petCuentaCon" class="mvp-tag-list" aria-label="Cuenta con">
+            <li>Desparasitación</li>
+            <li>Cartilla de vacunas</li>
+          </ul>
+        </div>
+
+        <div id="petNotasBlock" class="mvp-notes">
+          <h2>Notas</h2>
+          <p id="petNotas">Sin alergias conocidas. Se lleva bien con gatos.</p>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <script src="../../js/mvp-shared.js"></script>
+  <script src="../../js/perfil-mascota.js"></script>
+</body>
+</html>

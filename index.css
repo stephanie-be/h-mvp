@@ -1,0 +1,187 @@
+/* Huelli MVP — mapa de pantallas (index.html) */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+.font-sans {
+  margin: 0;
+  font-family: Inter, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.screens-page {
+  min-height: 100vh;
+  background: #fff;
+  color: #0a0a0a;
+}
+
+.screens-wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 20px 64px;
+}
+
+.screens-figjam {
+  background:
+    radial-gradient(circle, #d4d4d4 1px, transparent 1px) 0 0 / 20px 20px,
+    #fafafa;
+  color: #0a0a0a;
+}
+
+.fig-board-head {
+  margin-bottom: 28px;
+}
+
+.fig-board-head h1 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #0a0a0a;
+}
+
+.fig-board-head p {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: #555;
+}
+
+.fig-board {
+  padding: 28px 20px 32px;
+  border: 1.5px solid #0a0a0a;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.fig-lane {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.fig-lane-label {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #777;
+}
+
+.fig-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px 16px;
+}
+
+.fig-row--branch {
+  align-items: flex-start;
+  gap: 20px 28px;
+  width: 100%;
+}
+
+.fig-branch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex: 1 1 200px;
+  max-width: 260px;
+}
+
+.fig-node {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 160px;
+  max-width: 240px;
+  width: 100%;
+  padding: 14px 16px;
+  border: 1.5px solid #0a0a0a;
+  border-radius: 10px;
+  background: rgba(4, 155, 102, 0.07);
+  color: #0a0a0a;
+  text-decoration: none;
+  box-shadow: 2px 2px 0 #0a0a0a;
+  transition: transform 0.12s ease, background-color 0.12s ease;
+}
+
+.fig-node:hover {
+  background: rgba(4, 155, 102, 0.12);
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 #0a0a0a;
+}
+
+.fig-node--main {
+  min-width: 200px;
+  background: rgba(4, 155, 102, 0.09);
+}
+
+.fig-node--dashed {
+  border-style: dashed;
+  box-shadow: none;
+  background: #fff;
+}
+
+.fig-node--dashed:hover {
+  box-shadow: none;
+  transform: none;
+  background: #fff;
+}
+
+.fig-node strong {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.fig-node span {
+  font-size: 12px;
+  line-height: 1.35;
+  color: #555;
+}
+
+.fig-arrow,
+.fig-arrow-down {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  line-height: 1;
+  color: #0a0a0a;
+  user-select: none;
+}
+
+.fig-connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0;
+}
+
+@media (max-width: 640px) {
+  .fig-board {
+    padding: 20px 14px 24px;
+  }
+
+  .fig-row--branch {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .fig-branch {
+    max-width: none;
+    flex: 1 1 auto;
+  }
+
+  .fig-node {
+    max-width: none;
+  }
+}

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Registro de mascota en albergue — Huelli MVP." />
+  <title>Registrar · Huelli MVP</title>
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/mvp.css?v=foto-crop-cta" />
+</head>
+<body class="font-sans mvp-app mvp-registro">
+  <div class="mvp-shell mvp-shell--sheet">
+    <p id="liveStatus" class="mvp-live-status" aria-live="polite" aria-atomic="true"></p>
+
+    <header class="mvp-sheet-header">
+      <div class="mvp-sheet-header-row">
+        <a class="mvp-sheet-back mvp-touch-target" href="panel-albergue.html" aria-label="Volver al panel">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M15 18l-6-6 6-6"/>
+          </svg>
+        </a>
+        <div class="mvp-header-heading">
+          <h1 class="mvp-sheet-title">Registrar</h1>
+          <p class="mvp-sheet-subtitle">Completa los datos del animal en adopción</p>
+        </div>
+      </div>
+    </header>
+
+    <section id="registroFormPanel" class="mvp-sheet mvp-view is-active">
+      <form id="registroForm" class="huelli-form mvp-sheet-form" novalidate>
+        <div class="mvp-photo-block">
+          <button type="button" id="fotoTrigger" class="mvp-photo-trigger" aria-label="Toma o sube una foto">
+            <span class="mvp-photo-circle">
+              <span id="fotoPlaceholder" class="mvp-photo-placeholder">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                  <path d="M4 7h4l2-3h4l2 3h4v11H4V7Z"/>
+                  <circle cx="12" cy="13" r="3.5"/>
+                </svg>
+                <span class="mvp-photo-placeholder-text">Toma o sube una foto</span>
+              </span>
+              <img id="fotoPreview" alt="" hidden />
+            </span>
+            <span class="mvp-photo-link">Asegúrate que el rostro esté centrado y bien iluminado</span>
+          </button>
+          <input id="fotoInput" type="file" accept="image/*" capture="environment" hidden />
+          <p id="fotoError" class="field-error" role="alert" hidden></p>
+        </div>
+
+        <div class="mvp-form-row">
+          <div class="form-field mvp-form-field">
+            <label class="form-label" for="nombre">Nombre</label>
+            <input id="nombre" class="dash-input mvp-input-soft" type="text" autocomplete="off" placeholder="Ej: Luna" />
+            <p class="field-error" data-error-for="nombre" hidden></p>
+          </div>
+
+          <div class="form-field mvp-form-field">
+            <span class="form-label" id="tipoLabel">Tipo</span>
+            <div class="registro-choice-chips" data-choice-group="tipo" data-choice-mode="single" role="group" aria-labelledby="tipoLabel">
+              <button type="button" class="choice-chip" data-value="Perro" aria-pressed="false">
+                <span class="choice-chip-emoji" aria-hidden="true">🐶</span>
+                <span>Perro</span>
+              </button>
+              <button type="button" class="choice-chip" data-value="Gato" aria-pressed="false">
+                <span class="choice-chip-emoji" aria-hidden="true">🐱</span>
+                <span>Gato</span>
+              </button>
+            </div>
+            <p class="field-error" data-error-for="tipo" hidden></p>
+          </div>
+        </div>
+
+        <div class="mvp-form-row">
+          <div class="form-field mvp-form-field">
+            <label class="form-label" for="raza">Raza</label>
+            <input id="raza" class="dash-input mvp-input-soft" type="text" autocomplete="off" placeholder="Ej: Mestiza" />
+          </div>
+
+          <div class="form-field mvp-form-field">
+            <span class="form-label" id="sexoLabel">Sexo</span>
+            <div class="registro-choice-chips" data-choice-group="sexo" data-choice-mode="single" role="group" aria-labelledby="sexoLabel">
+              <button type="button" class="choice-chip" data-value="Macho" aria-pressed="false">
+                <span class="choice-chip-emoji" aria-hidden="true">♂️</span>
+                <span>Macho</span>
+              </button>
+              <button type="button" class="choice-chip" data-value="Hembra" aria-pressed="false">
+                <span class="choice-chip-emoji" aria-hidden="true">♀️</span>
+                <span>Hembra</span>
+              </button>
+            </div>
+            <p class="field-error" data-error-for="sexo" hidden></p>
+          </div>
+        </div>
+
+        <div class="mvp-form-row">
+          <div class="form-field mvp-form-field">
+            <span class="form-label" id="edadLabel">Edad aproximada</span>
+            <div class="registro-age-grid" role="group" aria-labelledby="edadLabel">
+              <input id="edadAnios" class="dash-input mvp-input-soft" type="number" min="0" max="30" inputmode="numeric" autocomplete="off" placeholder="Años" aria-label="Años" />
+              <input id="edadMeses" class="dash-input mvp-input-soft" type="number" min="0" max="11" inputmode="numeric" autocomplete="off" placeholder="Meses" aria-label="Meses" />
+            </div>
+            <p class="field-error" data-error-for="edad" hidden></p>
+          </div>
+
+          <div class="form-field mvp-form-field">
+            <span class="form-label" id="caracterLabel">Carácter</span>
+            <div class="registro-choice-chips" data-choice-group="caracter" data-choice-mode="multi" role="group" aria-labelledby="caracterLabel">
+              <button type="button" class="choice-chip" data-value="Tranquilo" aria-pressed="false">Tranquilo</button>
+              <button type="button" class="choice-chip" data-value="Juguetón" aria-pressed="false">Juguetón</button>
+              <button type="button" class="choice-chip" data-value="Sociable" aria-pressed="false">Sociable</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-field mvp-form-field">
+          <span class="form-label" id="cuentoConLabel">Cuenta con</span>
+          <div class="registro-choice-chips" data-choice-group="cuentoCon" data-choice-mode="multi" role="group" aria-labelledby="cuentoConLabel">
+            <button type="button" class="choice-chip" data-value="Desparasitación" aria-pressed="false">Desparasitación</button>
+            <button type="button" class="choice-chip" data-value="Cartilla de vacunas" aria-pressed="false">Cartilla de vacunas</button>
+            <button type="button" class="choice-chip" data-value="Esterilización" aria-pressed="false">Esterilización</button>
+          </div>
+        </div>
+
+        <div class="form-field mvp-form-field">
+          <label class="form-label" for="notas">Notas <span class="mvp-label-optional">(opcional)</span></label>
+          <textarea id="notas" class="dash-input mvp-textarea-soft" placeholder="Vacunas, tratamientos, alergias…"></textarea>
+        </div>
+
+        <div id="uploadProgress" class="mvp-progress" hidden aria-hidden="true">
+          <div class="mvp-progress-bar"><div id="progressFill" class="mvp-progress-fill" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div></div>
+          <div class="mvp-progress-meta"><span id="progressText">Subiendo foto…</span><span id="progressLabel">0%</span></div>
+        </div>
+
+        <button id="submitBtn" type="submit" class="huelli-button mvp-submit mvp-touch-target" aria-busy="false">
+          <span class="mvp-submit-label">
+            <svg class="mvp-submit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+              <polyline points="17 21 17 13 7 13 7 21"/>
+              <polyline points="7 3 7 8 15 8"/>
+            </svg>
+            Registrar Mascota
+          </span>
+        </button>
+      </form>
+    </section>
+
+    <section id="registroSuccessPanel" class="mvp-sheet mvp-view is-hidden" hidden>
+      <div class="mvp-success-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>
+      </div>
+      <div class="mvp-success-title">
+        <h2>Mascota registrada</h2>
+        <span class="mvp-code" id="successCode">HU-0001</span>
+      </div>
+
+      <p class="mvp-lead" style="text-align:center">Enlace de la ficha pública</p>
+      <p class="mvp-url" id="successUrl">huelli.app/mascota/HU-0001</p>
+
+      <div class="mvp-actions-stack">
+        <button type="button" id="resetBtn" class="huelli-button mvp-touch-target">Registrar otra mascota</button>
+        <a id="viewPublicBtn" class="huelli-button huelli-button--secondary mvp-touch-target" href="../mascota/perfil-mascota.html?codigo=HU-0001&amp;from=panel">Ver ficha pública</a>
+      </div>
+    </section>
+  </div>
+
+  <div id="fotoCropModal" class="mvp-foto-crop-modal" hidden>
+    <div class="mvp-foto-crop-backdrop" data-crop-close></div>
+    <div class="mvp-foto-crop-sheet" role="dialog" aria-modal="true" aria-labelledby="fotoCropTitle" aria-describedby="fotoCropHint">
+      <h2 id="fotoCropTitle">Ajustar foto</h2>
+      <p id="fotoCropHint" class="mvp-foto-crop-hint">Arrastra dentro del círculo para centrar el rostro</p>
+
+      <div class="mvp-foto-crop-stage">
+        <div id="fotoCropViewport" class="mvp-foto-crop-viewport">
+          <img id="fotoCropImage" class="mvp-foto-crop-image" alt="" draggable="false" />
+        </div>
+      </div>
+
+      <div class="mvp-foto-crop-actions">
+        <button type="button" id="fotoCropCancel" class="mvp-tutor-cancel">Cancelar</button>
+        <button type="button" id="fotoCropConfirm" class="huelli-button mvp-tutor-save">Listo</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../js/mvp-shared.js"></script>
+  <script src="../../js/registrar-animal-albergue.js"></script>
+</body>
+</html>

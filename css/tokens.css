@@ -1,0 +1,123 @@
+/* Huelli MVP · design tokens
+   Fuente única de color, tipografía, radios, controles y elevación.
+   Las pantallas consumen estas variables vía mvp.css. */
+
+:root {
+  /* ——— Color: marca ——— */
+  --huelli-color-primary: #049b66;
+  --huelli-color-primary-hover: #03794f;
+  --huelli-color-active: #74df8d;
+  --huelli-color-on-primary: #ffffff;
+  --huelli-color-on-primary-muted: rgba(255, 255, 255, 0.78);
+  --huelli-color-on-primary-soft: rgba(255, 255, 255, 0.18);
+
+  /* CTA / hero (botones Ingresar · Registrar, banner login) */
+  --huelli-color-cta-from: #25b86d;
+  --huelli-color-cta-to: #0e9051;
+  --huelli-color-cta-from-hover: #1ea35e;
+  --huelli-color-cta-to-hover: #0b7542;
+  --huelli-gradient-cta: linear-gradient(90deg, var(--huelli-color-cta-from) 0%, var(--huelli-color-cta-to) 100%);
+  --huelli-gradient-cta-hover: linear-gradient(90deg, var(--huelli-color-cta-from-hover) 0%, var(--huelli-color-cta-to-hover) 100%);
+  --huelli-gradient-hero: linear-gradient(135deg, var(--huelli-color-cta-from) 0%, var(--huelli-color-cta-to) 100%);
+
+  /* ——— Color: texto ——— */
+  --huelli-color-text: #0a0a0a;
+  --huelli-color-text-muted: rgba(10, 10, 10, 0.6);
+  --huelli-color-text-soft: #858585;
+  --huelli-color-placeholder: #9ca3af;
+
+  /* ——— Color: superficies ——— */
+  --huelli-color-bg: #f5f7f6;
+  --huelli-color-login-canvas: #f3f6f4;
+  --huelli-color-platform: #ffffff;
+  --huelli-color-surface: #ffffff;
+  --huelli-color-input-fill: #f9fafb;
+  --huelli-color-chip: #f3f3f5;
+  --huelli-color-chip-hover: #e7e6e9;
+  --huelli-color-success-soft: #f0fbf5;
+  --huelli-color-adopted-bg: #f1f3f2;
+  --huelli-color-adopted-text: #3d4a44;
+
+  /* ——— Color: bordes / divisores ——— */
+  --huelli-color-border: #e3e6e4;
+  --huelli-color-border-strong: #d0d5d2;
+  --huelli-color-input-border: #a8afb6;
+  --huelli-color-input-border-hover: #4b5563;
+  --huelli-color-divider: #e5e7eb;
+
+  /* ——— Color: feedback ——— */
+  --huelli-color-danger: #e5484d;
+  --huelli-color-danger-text: #e53935;
+  --huelli-color-danger-text-hover: #c62828;
+
+  /* ——— Espaciado ——— */
+  --huelli-space-1: 4px;
+  --huelli-space-2: 8px;
+  --huelli-space-3: 12px;
+  --huelli-space-4: 16px;
+  --huelli-space-5: 20px;
+  --huelli-space-6: 24px;
+  --huelli-space-8: 32px;
+
+  /* ——— Radio ——— */
+  --huelli-radius-sm: 8px;
+  --huelli-radius-control: 10px; /* inputs outline / botones CTA */
+  --huelli-radius-md: 12px;
+  --huelli-radius-lg: 16px;
+  --huelli-radius-xl: 28px; /* sheets / login card */
+  --huelli-radius-round: 999px;
+
+  /* ——— Controles ——— */
+  --huelli-control-sm: 40px; /* chips */
+  --huelli-control-md: 44px; /* inputs outline / modal */
+  --huelli-control-lg: 48px; /* submit */
+  --huelli-control-xl: 52px; /* legacy login tall — prefer md */
+
+  /* ——— Tipografía ——— */
+  --huelli-font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  --huelli-font-xs: 12px;
+  --huelli-font-sm: 13px;
+  --huelli-font-body: 14px;
+  --huelli-font-control: 15px;
+  --huelli-font-section: 16px;
+  --huelli-font-title: 24px;
+  --huelli-font-title-lg: 28px;
+
+  /* ——— Layout ——— */
+  --huelli-shell-max: 28rem; /* phone / login · registrar */
+  --huelli-shell-tablet: 48rem; /* panel directorio */
+  --huelli-content-max: 1200px;
+
+  /* Breakpoints (alineados a Tailwind)
+     sm = 40rem · md = 48rem · lg = 64rem
+     En @media usar rem literales; las custom props no aplican ahí. */
+  --huelli-bp-sm: 40rem;
+  --huelli-bp-md: 48rem;
+  --huelli-bp-lg: 64rem;
+
+  /* ——— Elevación ——— */
+  --huelli-shadow-card: 0 1px 2px rgba(16, 24, 20, 0.06);
+  --huelli-shadow-sheet: 0 -8px 28px rgba(10, 10, 10, 0.12);
+  --huelli-shadow-modal: var(--huelli-shadow-sheet);
+
+  /* ——— Movimiento ——— */
+  --huelli-transition-fast: 150ms ease;
+  --huelli-transition-ui: 0.28s ease;
+}
+
+html {
+  font-family: var(--huelli-font-family);
+}
+
+body {
+  font-family: inherit;
+}
+
+button,
+input,
+select,
+textarea,
+optgroup,
+option {
+  font-family: inherit;
+}

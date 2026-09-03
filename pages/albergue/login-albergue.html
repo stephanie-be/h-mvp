@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Inicio de sesión para albergues — Huelli MVP." />
+  <title>Bienvenido/a · Albergue · Huelli MVP</title>
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/mvp.css?v=mvp-only" />
+</head>
+<body class="font-sans mvp-app mvp-login">
+  <div class="mvp-shell mvp-shell--sheet">
+    <p id="liveStatus" class="mvp-live-status" aria-live="polite" aria-atomic="true"></p>
+
+    <header class="mvp-sheet-header mvp-login-hero">
+      <div class="mvp-login-hero-inner">
+        <div class="mvp-login-hero-badge">
+          <img class="mvp-login-logo" src="../../assets/huelli-logo.jpg" alt="Huelli" />
+        </div>
+      </div>
+    </header>
+
+    <section class="mvp-sheet mvp-login-sheet">
+      <div class="mvp-login-welcome">
+        <h1 class="mvp-login-welcome-title">Bienvenido/a</h1>
+        <p class="mvp-login-welcome-sub">a Huelli para albergues</p>
+      </div>
+
+      <form id="loginForm" class="huelli-form mvp-sheet-form mvp-login-form" novalidate>
+        <div class="form-field mvp-form-field mvp-login-field">
+          <label class="form-label" for="correo">Correo del representante</label>
+          <div class="mvp-outline-field mvp-outline-field--static">
+            <input
+              id="correo"
+              class="dash-input mvp-login-input"
+              type="email"
+              autocomplete="email"
+              placeholder="Ingresa tu correo"
+            />
+            <span class="mvp-field-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3.5" y="5.5" width="17" height="13" rx="2"/>
+                <path d="m4 7 8 6 8-6"/>
+              </svg>
+            </span>
+          </div>
+          <p class="field-error" data-error-for="correo" hidden></p>
+        </div>
+
+        <div class="form-field mvp-form-field mvp-login-field">
+          <label class="form-label" for="contrasena">Contraseña</label>
+          <div class="mvp-outline-field mvp-outline-field--static">
+            <input
+              id="contrasena"
+              class="dash-input mvp-login-input mvp-input-password"
+              type="password"
+              autocomplete="current-password"
+              placeholder="Mínimo 6 caracteres"
+            />
+            <span class="mvp-field-icon mvp-field-icon--lock" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="5" y="11" width="14" height="10" rx="2.5"/>
+                <path d="M8 11V8a4 4 0 0 1 8 0v3"/>
+              </svg>
+            </span>
+          </div>
+          <p class="field-error" data-error-for="contrasena" hidden></p>
+        </div>
+
+        <button id="loginSubmit" type="submit" class="huelli-button mvp-submit mvp-touch-target" aria-busy="false">
+          <span class="mvp-submit-label">Ingresar</span>
+        </button>
+      </form>
+
+      <p class="mvp-login-help">
+        ¿No tienes cuenta?
+        <a href="signup-albergue.html">Regístrate</a>
+      </p>
+    </section>
+  </div>
+
+  <script src="../../js/mvp-shared.js"></script>
+  <script src="../../js/auth-albergue.js"></script>
+</body>
+</html>

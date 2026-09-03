@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Panel del albergue — mascotas registradas — Huelli MVP." />
+  <title>Panel · Albergue ABC · Huelli MVP</title>
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/mvp.css?v=tutor-underline" />
+</head>
+<body class="font-sans mvp-app mvp-panel">
+  <div class="mvp-shell mvp-shell--sheet">
+    <p class="mvp-live-status" data-panel-live aria-live="polite" aria-atomic="true"></p>
+
+    <header class="mvp-sheet-header">
+      <div class="mvp-sheet-header-row">
+        <div class="mvp-header-heading">
+          <h1 class="mvp-sheet-title">Panel</h1>
+          <p class="mvp-sheet-subtitle">Dale click a una foto para ver la ficha única</p>
+        </div>
+        <a class="mvp-fab-link mvp-touch-target" href="registrar-animal-albergue.html">
+          <svg class="mvp-fab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+            <path d="M12 5v14"/>
+            <path d="M5 12h14"/>
+          </svg>
+          Registrar
+        </a>
+      </div>
+    </header>
+
+    <section class="mvp-sheet mvp-panel-sheet">
+      <div class="mvp-panel-scroll">
+        <section class="mvp-panel-section" data-shelter-section>
+          <header class="mvp-panel-section-header">
+            <div class="mvp-panel-heading">
+              <h2 class="mvp-panel-section-title"><span>En albergue</span></h2>
+            </div>
+          </header>
+          <p class="mvp-panel-empty" data-shelter-empty hidden>No hay mascotas en el albergue.</p>
+          <ul class="mvp-panel-list" data-pet-list="shelter" aria-label="Mascotas en albergue">
+          <li class="mvp-panel-item" data-pet-item data-codigo="HU-0001" data-status="shelter">
+            <a class="mvp-panel-photo" href="../mascota/perfil-mascota.html?codigo=HU-0001&amp;from=panel" aria-label="Ver ficha pública de Luna">
+              <img src="../../assets/mascotas/luna.jpg" alt="Luna" />
+            </a>
+            <div>
+              <h3>Luna</h3>
+              <p>HU-0001 · 8 meses</p>
+              <button type="button" class="mvp-tutor-btn" data-tutor-btn hidden>Asignar tutor</button>
+            </div>
+              <div class="mvp-panel-actions">
+                <div class="huelli-select-wrap mvp-status-select-wrap">
+                  <select class="dash-input mvp-status-select" data-status-select aria-label="Estado de Luna">
+                    <option value="shelter" selected>En albergue</option>
+                    <option value="adopted">Adoptado</option>
+                  </select>
+                  <svg class="huelli-select-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </div>
+              </div>
+            </li>
+
+          <li class="mvp-panel-item" data-pet-item data-codigo="HU-0003" data-status="shelter">
+            <a class="mvp-panel-photo" href="../mascota/perfil-mascota.html?codigo=HU-0003&amp;from=panel" aria-label="Ver ficha pública de Abeja">
+              <img src="../../assets/mascotas/abeja.jpg" alt="Abeja" />
+            </a>
+            <div>
+              <h3>Abeja</h3>
+              <p>HU-0003 · 1 año</p>
+              <button type="button" class="mvp-tutor-btn" data-tutor-btn hidden>Asignar tutor</button>
+            </div>
+            <div class="mvp-panel-actions">
+                <div class="huelli-select-wrap mvp-status-select-wrap">
+                  <select class="dash-input mvp-status-select" data-status-select aria-label="Estado de Abeja">
+                    <option value="shelter" selected>En albergue</option>
+                    <option value="adopted">Adoptado</option>
+                  </select>
+                  <svg class="huelli-select-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </div>
+              </div>
+            </li>
+
+          <li class="mvp-panel-item" data-pet-item data-codigo="HU-0004" data-status="shelter">
+            <a class="mvp-panel-photo" href="../mascota/perfil-mascota.html?codigo=HU-0004&amp;from=panel" aria-label="Ver ficha pública de Tony">
+              <img src="../../assets/mascotas/tony.jpg" alt="Tony" />
+            </a>
+            <div>
+              <h3>Tony</h3>
+              <p>HU-0004 · 1 año</p>
+              <button type="button" class="mvp-tutor-btn" data-tutor-btn hidden>Asignar tutor</button>
+            </div>
+            <div class="mvp-panel-actions">
+                <div class="huelli-select-wrap mvp-status-select-wrap">
+                  <select class="dash-input mvp-status-select" data-status-select aria-label="Estado de Tony">
+                    <option value="shelter" selected>En albergue</option>
+                    <option value="adopted">Adoptado</option>
+                  </select>
+                  <svg class="huelli-select-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <section class="mvp-panel-section" data-adopted-section>
+          <header class="mvp-panel-section-header">
+            <div class="mvp-panel-heading">
+              <h2 class="mvp-panel-section-title"><span>Adoptados</span></h2>
+            </div>
+          </header>
+          <p class="mvp-panel-empty" data-adopted-empty hidden>Aún no hay mascotas adoptadas.</p>
+          <ul class="mvp-panel-list" data-pet-list="adopted" aria-label="Mascotas adoptadas">
+            <li class="mvp-panel-item" data-pet-item data-codigo="HU-0002" data-status="adopted">
+              <a class="mvp-panel-photo" href="../mascota/perfil-mascota.html?codigo=HU-0002&amp;from=panel" aria-label="Ver ficha pública de Coco">
+                <img src="../../assets/mascotas/coco.jpg" alt="Coco" />
+              </a>
+              <div>
+                <h3>Coco</h3>
+                <p>HU-0002 · 3 meses</p>
+                <button type="button" class="mvp-tutor-btn" data-tutor-btn>Asignar tutor</button>
+              </div>
+              <div class="mvp-panel-actions">
+                <div class="huelli-select-wrap mvp-status-select-wrap">
+                  <select class="dash-input mvp-status-select" data-status-select aria-label="Estado de Coco">
+                    <option value="shelter">En albergue</option>
+                    <option value="adopted" selected>Adoptado</option>
+                  </select>
+                  <svg class="huelli-select-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="mvp-logout-row">
+        <a class="mvp-logout mvp-touch-target" href="login-albergue.html" data-logout>Cerrar sesión</a>
+      </div>
+    </section>
+  </div>
+
+  <div class="mvp-tutor-modal" id="tutorModal" hidden>
+    <div class="mvp-tutor-modal-backdrop" data-tutor-close></div>
+    <div class="mvp-tutor-modal-sheet" role="dialog" aria-modal="true" aria-labelledby="tutorModalTitle">
+      <h2 id="tutorModalTitle">Asignar tutor</h2>
+      <p class="mvp-tutor-modal-sub" id="tutorModalSub">Indica quién adopta a esta mascota.</p>
+      <form id="tutorForm" class="mvp-tutor-form" novalidate>
+        <div class="form-field">
+          <label class="form-label" for="tutorNombre">Nombre del tutor</label>
+          <input id="tutorNombre" class="dash-input mvp-login-input" type="text" autocomplete="name" placeholder="Ej. Ana Pérez" required />
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="tutorContacto">Contacto <span class="mvp-optional">(opcional)</span></label>
+          <input id="tutorContacto" class="dash-input mvp-login-input" type="text" autocomplete="tel" placeholder="Teléfono o correo" />
+        </div>
+        <div class="mvp-tutor-modal-actions">
+          <button type="button" class="mvp-tutor-cancel" data-tutor-close>Cancelar</button>
+          <button type="submit" class="huelli-button mvp-tutor-save">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="../../js/mvp-shared.js"></script>
+  <script src="../../js/panel-albergue.js"></script>
+</body>
+</html>

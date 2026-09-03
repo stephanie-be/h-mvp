@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <defs>
+    <linearGradient id="huelliGrad" x1="16" y1="0" x2="16" y2="32" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#C8F560"/>
+      <stop offset="45%" stop-color="#5EE9A8"/>
+      <stop offset="100%" stop-color="#2AD4D8"/>
+    </linearGradient>
+  </defs>
+  <circle cx="16" cy="16" r="16" fill="url(#huelliGrad)"/>
+</svg>

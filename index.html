@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mapa de pantallas del mockup Huelli MVP — identificación digital de mascotas." />
+  <title>Mapa de pantallas · Huelli MVP</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body class="font-sans screens-page screens-figjam">
+  <div class="screens-wrap">
+    <header class="fig-board-head">
+      <h1>MVP · flujo</h1>
+      <p>Click en un nodo para abrir la pantalla. Nodos con borde punteado = estado / modal en la misma página (no son URLs aparte).</p>
+    </header>
+
+    <div class="fig-board" aria-label="Diagrama de flujo del MVP">
+
+      <section class="fig-lane" aria-label="Cuenta">
+        <p class="fig-lane-label">cuenta</p>
+        <div class="fig-row">
+          <a class="fig-node" href="pages/albergue/signup-albergue.html" target="_blank" rel="noopener noreferrer">
+            <strong>Crear cuenta</strong>
+            <span>sign up</span>
+          </a>
+          <span class="fig-arrow" aria-hidden="true">↔</span>
+          <a class="fig-node" href="pages/albergue/login-albergue.html" target="_blank" rel="noopener noreferrer">
+            <strong>Login</strong>
+            <span>correo + contraseña</span>
+          </a>
+        </div>
+      </section>
+
+      <div class="fig-connector" aria-hidden="true">
+        <span class="fig-arrow-down">↓</span>
+      </div>
+
+      <section class="fig-lane" aria-label="Albergue">
+        <p class="fig-lane-label">albergue</p>
+        <div class="fig-row">
+          <a class="fig-node fig-node--main" href="pages/albergue/panel-albergue.html" target="_blank" rel="noopener noreferrer">
+            <strong>Panel</strong>
+            <span>3 en albergue · 1 adoptado</span>
+          </a>
+        </div>
+      </section>
+
+      <div class="fig-connector" aria-hidden="true">
+        <span class="fig-arrow-down">↓</span>
+      </div>
+
+      <section class="fig-lane" aria-label="Ramas del panel">
+        <div class="fig-row fig-row--branch">
+          <div class="fig-branch">
+            <a class="fig-node fig-node--dashed" href="pages/albergue/panel-albergue.html" target="_blank" rel="noopener noreferrer">
+              <strong>Modal tutor</strong>
+              <span>Adoptados › botón asignar tutor / ver tutor</span>
+            </a>
+          </div>
+          <div class="fig-branch">
+            <a class="fig-node" href="pages/albergue/registrar-animal-albergue.html" target="_blank" rel="noopener noreferrer">
+              <strong>Registrar mascota</strong>
+              <span>formulario + foto</span>
+            </a>
+            <span class="fig-arrow-down">↓</span>
+            <a class="fig-node fig-node--dashed" href="pages/albergue/registrar-animal-albergue.html" target="_blank" rel="noopener noreferrer">
+              <strong>Ajustar foto</strong>
+              <span>Tras elegir foto · centrar en el círculo</span>
+            </a>
+            <span class="fig-arrow-down">↓</span>
+            <a class="fig-node fig-node--dashed" href="pages/albergue/registrar-animal-albergue.html" target="_blank" rel="noopener noreferrer">
+              <strong>Éxito</strong>
+              <span>Tras registrar · Genera código HU- · botones registrar otro / ver ficha</span>
+            </a>
+          </div>
+          <div class="fig-branch">
+            <a class="fig-node" href="pages/mascota/perfil-mascota.html?codigo=HU-0001&amp;from=panel" target="_blank" rel="noopener noreferrer">
+              <strong>Ficha Luna</strong>
+              <span>HU-0001 · en albergue</span>
+            </a>
+            <span class="fig-arrow-down">↓</span>
+            <a class="fig-node" href="pages/mascota/perfil-mascota.html?codigo=HU-0002&amp;from=panel" target="_blank" rel="noopener noreferrer">
+              <strong>Ficha Coco</strong>
+              <span>HU-0002 · adoptado</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</body>
+</html>
