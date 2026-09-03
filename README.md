@@ -9,7 +9,7 @@ Empieza por `index.html`. Flujo:
 | `pages/albergue/signup-albergue.html` | Crear cuenta |
 | `pages/albergue/login-albergue.html` | Login |
 | `pages/albergue/panel-albergue.html` | Panel (lista + estado + modal tutor) |
-| `pages/albergue/registrar-animal-albergue.html` | Registrar animal + éxito |
+| `pages/albergue/registrar-animal-albergue.html` | Registrar animal + éxito (editar vuelve al panel) |
 | `pages/animal/perfil-animal.html` | Ficha pública (`?codigo=HU-0001`) |
 
 ## Estructura

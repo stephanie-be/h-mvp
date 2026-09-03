@@ -346,12 +346,10 @@
     const title = document.querySelector('.mvp-registro .mvp-sheet-title');
     const subtitle = document.querySelector('.mvp-registro .mvp-sheet-subtitle');
     const submitText = document.getElementById('submitLabelText');
-    const successTitle = document.getElementById('successTitle');
 
     if (title) title.textContent = 'Editar animal';
     if (subtitle) subtitle.textContent = `Actualiza los datos de ${pet.nombre}`;
     if (submitText) submitText.textContent = 'Guardar cambios';
-    if (successTitle) successTitle.textContent = 'Cambios guardados';
     document.title = `Editar animal · ${pet.nombre} · Huelli MVP`;
 
     const nombre = document.getElementById('nombre');
@@ -373,12 +371,6 @@
     if (edadMeses) edadMeses.value = meses;
 
     if (pet.foto) applyExistingPhoto(pet.foto, pet.nombre);
-
-    if (successCode) successCode.textContent = pet.codigo;
-    if (viewPublicBtn) {
-      viewPublicBtn.href = `../animal/perfil-animal.html?codigo=${encodeURIComponent(pet.codigo)}&from=panel`;
-    }
-    if (resetBtn) resetBtn.textContent = 'Volver al panel';
   }
 
   window.HuelliMvp?.bindKeyboardOffset(app);
@@ -671,14 +663,19 @@
     try {
       await simulateUpload();
 
-      const codigo = editPet?.codigo || 'HU-0001';
+      if (editPet) {
+        window.location.href = 'panel-albergue.html';
+        return;
+      }
+
+      const codigo = 'HU-0001';
       const publicPath = `../animal/perfil-animal.html?codigo=${encodeURIComponent(codigo)}&from=panel`;
 
       if (successCode) successCode.textContent = codigo;
       if (viewPublicBtn) viewPublicBtn.href = publicPath;
 
       await transitionPanels(formPanel, successPanel);
-      announce(editPet ? `Cambios de ${editPet.nombre} guardados` : `Animal registrado con código ${codigo}`);
+      announce(`Animal registrado con código ${codigo}`);
     } finally {
       progressPanel?.setAttribute('hidden', '');
       progressPanel?.setAttribute('aria-hidden', 'true');
@@ -692,11 +689,6 @@
   });
 
   resetBtn?.addEventListener('click', async () => {
-    if (editPet) {
-      window.location.href = 'panel-albergue.html';
-      return;
-    }
-
     form.reset();
     resetChoiceChips();
     setFieldError('nombre', '');
