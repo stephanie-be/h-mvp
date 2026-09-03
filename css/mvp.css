@@ -1960,8 +1960,8 @@ body.mvp-modal-open {
 
 .huelli-select-wrap.mvp-status-select-wrap {
   flex: 0 1 auto;
-  width: 9.75rem;
-  max-width: 9.75rem;
+  width: 8.25rem;
+  max-width: 8.25rem;
 }
 
 .mvp-status-select {
@@ -1970,6 +1970,7 @@ body.mvp-modal-open {
   height: var(--huelli-control-input);
   min-height: var(--huelli-control-input);
   padding: 0 2.25rem 0 12px;
+  border-color: var(--huelli-color-text);
   border-radius: var(--huelli-radius-round);
   appearance: none;
   -webkit-appearance: none;
@@ -1981,7 +1982,7 @@ body.mvp-modal-open {
 }
 
 .mvp-panel-item[data-status="adopted"] .mvp-status-select {
-  border-color: var(--huelli-color-border);
+  border-color: var(--huelli-color-text);
   background: var(--huelli-color-adopted-bg);
   color: var(--huelli-color-adopted-text);
 }
@@ -2142,6 +2143,11 @@ body.mvp-modal-open {
     width: auto;
     justify-content: flex-end;
     min-width: min-content;
+  }
+
+  .huelli-select-wrap.mvp-status-select-wrap {
+    width: 9.75rem;
+    max-width: 9.75rem;
   }
 }
 
