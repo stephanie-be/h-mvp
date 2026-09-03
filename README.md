@@ -9,8 +9,8 @@ Empieza por `index.html`. Flujo:
 | `pages/albergue/signup-albergue.html` | Crear cuenta |
 | `pages/albergue/login-albergue.html` | Login |
 | `pages/albergue/panel-albergue.html` | Panel (lista + estado + modal tutor) |
-| `pages/albergue/registrar-animal-albergue.html` | Registrar mascota + éxito |
-| `pages/mascota/perfil-mascota.html` | Ficha pública (`?codigo=HU-0001`) |
+| `pages/albergue/registrar-animal-albergue.html` | Registrar animal + éxito |
+| `pages/animal/perfil-animal.html` | Ficha pública (`?codigo=HU-0001`) |
 
 ## Estructura
 
@@ -26,7 +26,7 @@ js/
   auth-albergue.js
   panel-albergue.js
   registrar-animal-albergue.js
-  perfil-mascota.js
+  perfil-animal.js
 pages/         pantallas HTML
 ```
 

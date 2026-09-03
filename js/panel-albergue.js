@@ -9,7 +9,6 @@
   const modal = document.getElementById('tutorModal');
   const form = document.getElementById('tutorForm');
   const titleEl = document.getElementById('tutorModalTitle');
-  const subEl = document.getElementById('tutorModalSub');
   const nombreInput = document.getElementById('tutorNombre');
   const contactoInput = document.getElementById('tutorContacto');
 
@@ -26,12 +25,15 @@
   function refreshTutorUi(item) {
     const codigo = item.dataset.codigo;
     const adopted = item.dataset.status === 'adopted';
-    const btn = item.querySelector('[data-tutor-btn]');
+    const tutorBtn = item.querySelector('[data-tutor-btn]');
+    const editBtn = item.querySelector('[data-edit-btn]');
     const tutor = getTutor(codigo);
 
-    if (btn) {
-      btn.hidden = !adopted;
-      btn.textContent = tutor ? 'Ver tutor' : 'Asignar tutor';
+    if (editBtn) editBtn.hidden = adopted;
+
+    if (tutorBtn) {
+      tutorBtn.hidden = !adopted;
+      tutorBtn.textContent = tutor ? 'Ver tutor' : 'Asignar tutor';
     }
   }
 
@@ -72,7 +74,7 @@
     refreshTutorUi(item);
     updateEmptyStates();
 
-    const name = item.querySelector('h3')?.textContent || 'Mascota';
+    const name = item.querySelector('h3')?.textContent || 'Animal';
     if (live) {
       live.textContent = status === 'adopted'
         ? `${name} se movió a Adoptados.`
@@ -82,11 +84,9 @@
 
   function openTutorModal(item) {
     activeItem = item;
-    const name = item.querySelector('h3')?.textContent || 'mascota';
     const codigo = item.dataset.codigo;
     const tutor = getTutor(codigo);
     if (titleEl) titleEl.textContent = tutor ? 'Ver tutor' : 'Asignar tutor';
-    if (subEl) subEl.textContent = `Tutor de ${name}`;
     if (nombreInput) nombreInput.value = tutor?.nombre || '';
     if (contactoInput) contactoInput.value = tutor?.contacto || '';
     if (modal) modal.hidden = false;
@@ -133,7 +133,7 @@
     const contacto = contactoInput?.value.trim() || '';
     setTutor(codigo, { nombre, contacto });
     refreshTutorUi(activeItem);
-    const petName = activeItem.querySelector('h3')?.textContent || 'Mascota';
+    const petName = activeItem.querySelector('h3')?.textContent || 'Animal';
     if (live) live.textContent = `Tutor de ${petName} actualizado.`;
     closeTutorModal();
   });

@@ -5,6 +5,7 @@
   /* ——— Color: marca ——— */
   --huelli-color-primary: #049b66;
   --huelli-color-primary-hover: #03794f;
+  --huelli-color-on-primary: #ffffff;
 
   /* CTA / hero (botones Ingresar · Registrar, banner login) */
   --huelli-color-cta-from: #25b86d;
@@ -13,7 +14,10 @@
   --huelli-color-cta-to-hover: #0b7542;
   --huelli-gradient-cta: linear-gradient(90deg, var(--huelli-color-cta-from) 0%, var(--huelli-color-cta-to) 100%);
   --huelli-gradient-cta-hover: linear-gradient(90deg, var(--huelli-color-cta-from-hover) 0%, var(--huelli-color-cta-to-hover) 100%);
-  --huelli-gradient-hero: linear-gradient(135deg, var(--huelli-color-cta-from) 0%, var(--huelli-color-cta-to) 100%);
+  /* Login / signup header: verde → teal (referencia splash) */
+  --huelli-color-hero-from: #2ecc71;
+  --huelli-color-hero-to: #14b8a6;
+  --huelli-gradient-hero: linear-gradient(135deg, var(--huelli-color-hero-from) 0%, var(--huelli-color-hero-to) 100%);
 
   /* ——— Color: texto ——— */
   --huelli-color-text: #0a0a0a;
@@ -32,6 +36,9 @@
   --huelli-color-success-soft: #f0fbf5;
   --huelli-color-adopted-bg: #f1f3f2;
   --huelli-color-adopted-text: #3d4a44;
+  --huelli-color-photo-bg: #e8ecea;
+  --huelli-color-photo-muted: #9aa3a0;
+  --huelli-color-thumb-bg: #eef1f3;
 
   /* ——— Color: bordes / divisores ——— */
   --huelli-color-border: #e3e6e4;
@@ -49,11 +56,12 @@
   --huelli-radius-control: 10px;
   --huelli-radius-md: 12px;
   --huelli-radius-lg: 16px;
+  --huelli-radius-sheet: 20px; /* modales, chips, textarea soft */
   --huelli-radius-xl: 28px;
   --huelli-radius-round: 999px;
 
   /* ——— Controles ——— */
-  --huelli-control-sm: 40px;
+  --huelli-control-input: 40px;
   --huelli-control-md: 44px;
 
   /* ——— Tipografía ——— */
@@ -61,10 +69,23 @@
   --huelli-font-xs: 12px;
   --huelli-font-sm: 13px;
   --huelli-font-body: 14px;
+  --huelli-font-title-sm: 18px; /* títulos de modal / códigos */
+  --huelli-font-title: 20px; /* títulos de sheet / welcome */
 
   /* ——— Layout ——— */
   --huelli-shell-max: 28rem;
   --huelli-shell-tablet: 48rem;
+  /* Padding lateral: auth, app sheet, ficha pública */
+  --huelli-inset-sheet: 28px;
+  --huelli-modal-padding: 22px var(--huelli-inset-sheet);
+
+  /* ——— Overlay / foco / capas ——— */
+  --huelli-overlay-modal: rgba(10, 10, 10, 0.35);
+  --huelli-overlay-modal-strong: rgba(10, 10, 10, 0.45);
+  --huelli-focus-ring: 2px solid rgba(4, 155, 102, 0.2);
+  --huelli-focus-ring-danger: 2px solid rgba(229, 72, 77, 0.25);
+  --huelli-z-modal: 40;
+  --huelli-z-modal-top: 50;
 
   /* ——— Elevación ——— */
   --huelli-shadow-card: 0 1px 2px rgba(16, 24, 20, 0.06);

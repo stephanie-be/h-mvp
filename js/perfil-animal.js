@@ -1,66 +1,6 @@
 (() => {
-  const CATALOG = {
-    'HU-0001': {
-      codigo: 'HU-0001',
-      nombre: 'Luna',
-      tipo: 'Gato',
-      edad: '8 meses',
-      raza: 'Mestiza',
-      sexo: 'Hembra',
-      caracter: ['Tranquilo', 'Sociable'],
-      cuentaCon: ['Desparasitación', 'Cartilla de vacunas'],
-      albergue: 'Albergue ABC',
-      foto: '../../assets/mascotas/luna.jpg',
-      estado: 'en_albergue',
-      notas: 'Sin alergias conocidas. Se lleva bien con gatos.',
-    },
-    'HU-0002': {
-      codigo: 'HU-0002',
-      nombre: 'Coco',
-      tipo: 'Perro',
-      edad: '3 meses',
-      raza: 'Mestizo',
-      sexo: 'Macho',
-      caracter: ['Juguetón', 'Sociable'],
-      cuentaCon: ['Cartilla de vacunas'],
-      albergue: 'Albergue ABC',
-      foto: '../../assets/mascotas/coco.jpg',
-      estado: 'adoptado',
-      notas: 'Cartilla iniciada. Próxima vacuna en 2 semanas. Cachorro juguetón y sociable.',
-    },
-    'HU-0003': {
-      codigo: 'HU-0003',
-      nombre: 'Abeja',
-      tipo: 'Perro',
-      edad: '1 año',
-      raza: 'Mestiza',
-      sexo: 'Hembra',
-      caracter: ['Juguetón', 'Sociable'],
-      cuentaCon: ['Cartilla de vacunas', 'Esterilización'],
-      albergue: 'Albergue ABC',
-      foto: '../../assets/mascotas/abeja.jpg',
-      estado: 'en_albergue',
-      notas: 'Leve dermatitis controlada con dieta.',
-    },
-    'HU-0004': {
-      codigo: 'HU-0004',
-      nombre: 'Tony',
-      tipo: 'Perro',
-      edad: '1 año',
-      raza: 'Labrador',
-      sexo: 'Macho',
-      caracter: ['Juguetón', 'Sociable'],
-      cuentaCon: ['Desparasitación', 'Cartilla de vacunas'],
-      albergue: 'Albergue ABC',
-      foto: '../../assets/mascotas/tony.jpg',
-      estado: 'en_albergue',
-      notas: 'Energía alta; necesita paseos diarios.',
-    },
-  };
-
-  function getPet(codigo) {
-    return CATALOG[codigo] || null;
-  }
+  const getPet = window.HuelliMvp?.getPet;
+  if (!getPet) return;
 
   const params = new URLSearchParams(window.location.search);
   const codigo = (params.get('codigo') || 'HU-0001').toUpperCase();

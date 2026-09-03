@@ -50,6 +50,14 @@ body,
   color: #555;
 }
 
+.fig-board-head .fig-board-lead {
+  margin-top: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #333;
+}
+
 .fig-board {
   padding: 28px 20px 32px;
   border: 1.5px solid #0a0a0a;

@@ -39,8 +39,8 @@
       if (!contrasena?.value.trim()) {
         setFieldError('contrasena', 'Ingresa la contraseña');
         valid = false;
-      } else if (contrasena.value.trim().length < 6) {
-        setFieldError('contrasena', 'Mínimo 6 caracteres');
+      } else if (contrasena.value.trim().length < 8) {
+        setFieldError('contrasena', 'Mínimo 8 carácteres');
         valid = false;
       } else {
         setFieldError('contrasena', '');
@@ -79,9 +79,7 @@
 
   function validateSignup() {
     let valid = true;
-    valid = required('albergue', 'Ingresa el nombre del albergue') && valid;
-    valid = required('nombreRep', 'Ingresa el nombre') && valid;
-    valid = required('apellidoRep', 'Ingresa el apellido') && valid;
+    valid = required('nombreRep', 'Ingresa el nombre completo') && valid;
 
     const correoVal = document.getElementById('correo')?.value.trim() ?? '';
     if (!correoVal) {
@@ -98,17 +96,17 @@
     const confirm = document.getElementById('confirma')?.value ?? '';
 
     if (!pass.trim()) {
-      setFieldError('contrasena', 'Crea una contraseña');
+      setFieldError('contrasena', 'Ingresa tu contraseña');
       valid = false;
-    } else if (pass.trim().length < 6) {
-      setFieldError('contrasena', 'Mínimo 6 caracteres');
+    } else if (pass.trim().length < 8) {
+      setFieldError('contrasena', 'Mínimo 8 carácteres');
       valid = false;
     } else {
       setFieldError('contrasena', '');
     }
 
     if (!confirm.trim()) {
-      setFieldError('confirma', 'Confirma la contraseña');
+      setFieldError('confirma', 'Confirma tu contraseña');
       valid = false;
     } else if (pass !== confirm) {
       setFieldError('confirma', 'Las contraseñas no coinciden');

@@ -14,7 +14,6 @@
   const progressText = document.getElementById('progressText');
   const submitBtn = document.getElementById('submitBtn');
   const successCode = document.getElementById('successCode');
-  const successUrl = document.getElementById('successUrl');
   const resetBtn = document.getElementById('resetBtn');
   const viewPublicBtn = document.getElementById('viewPublicBtn');
   const liveStatus = document.getElementById('liveStatus');
@@ -28,6 +27,9 @@
   if (!form || !formPanel || !successPanel) return;
 
   const OUTPUT_SIZE = 960;
+  const EDITABLE_CODIGO = 'HU-0001';
+  const editCodigo = (new URLSearchParams(window.location.search).get('edit') || '').toUpperCase();
+  const editPet = editCodigo === EDITABLE_CODIGO ? window.HuelliMvp?.getPet(EDITABLE_CODIGO) : null;
 
   let confirmedPreviewUrl = '';
   let confirmedFile = null;
@@ -58,13 +60,8 @@
 
   function bindFieldFocusHandlers() {
     form.querySelectorAll('input, textarea').forEach((field) => {
-      const wrapper = field.closest('.mvp-form-field');
       field.addEventListener('focus', () => {
-        wrapper?.classList.add('is-focused');
         scrollFieldIntoView(field);
-      });
-      field.addEventListener('blur', () => {
-        wrapper?.classList.remove('is-focused');
       });
     });
   }
@@ -162,7 +159,7 @@
   }
 
   function getViewportSize() {
-    return cropViewport?.clientWidth || 168;
+    return cropViewport?.clientWidth || 240;
   }
 
   function getDisplayScale() {
@@ -308,7 +305,7 @@
             reject(new Error('No se pudo generar la foto'));
             return;
           }
-          const baseName = (photoInput?.files?.[0]?.name || 'mascota').replace(/\.[^.]+$/, '');
+          const baseName = (photoInput?.files?.[0]?.name || 'animal').replace(/\.[^.]+$/, '');
           resolve(new File([blob], `${baseName}-ajuste.jpg`, { type: 'image/jpeg' }));
         },
         'image/jpeg',
@@ -317,9 +314,77 @@
     });
   }
 
+  function selectChipValues(groupName, values) {
+    const wanted = new Set((values || []).filter(Boolean));
+    const group = getChoiceGroup(groupName);
+    group?.querySelectorAll('.choice-chip').forEach((button) => {
+      const selected = wanted.has(button.dataset.value);
+      button.classList.toggle('is-selected', selected);
+      button.setAttribute('aria-pressed', selected ? 'true' : 'false');
+    });
+  }
+
+  function parseEdad(edad) {
+    const text = String(edad || '').toLowerCase();
+    const yearMatch = text.match(/(\d+)\s*años?/);
+    const monthMatch = text.match(/(\d+)\s*meses?/);
+    return {
+      anios: yearMatch ? yearMatch[1] : '',
+      meses: monthMatch ? monthMatch[1] : '',
+    };
+  }
+
+  function applyExistingPhoto(src, alt) {
+    hasConfirmedPhoto = true;
+    confirmedFile = null;
+    confirmedPreviewUrl = src || '';
+    if (photoPreview) photoPreview.alt = alt || '';
+    showConfirmedPreview(src);
+  }
+
+  function applyEditPet(pet) {
+    const title = document.querySelector('.mvp-registro .mvp-sheet-title');
+    const subtitle = document.querySelector('.mvp-registro .mvp-sheet-subtitle');
+    const submitText = document.getElementById('submitLabelText');
+    const successTitle = document.getElementById('successTitle');
+
+    if (title) title.textContent = 'Editar animal';
+    if (subtitle) subtitle.textContent = `Actualiza los datos de ${pet.nombre}`;
+    if (submitText) submitText.textContent = 'Guardar cambios';
+    if (successTitle) successTitle.textContent = 'Cambios guardados';
+    document.title = `Editar animal · ${pet.nombre} · Huelli MVP`;
+
+    const nombre = document.getElementById('nombre');
+    const raza = document.getElementById('raza');
+    const notas = document.getElementById('notas');
+    if (nombre) nombre.value = pet.nombre || '';
+    if (raza) raza.value = pet.raza || '';
+    if (notas) notas.value = pet.notas || '';
+
+    selectChipValues('tipo', pet.tipo ? [pet.tipo] : []);
+    selectChipValues('sexo', pet.sexo ? [pet.sexo] : []);
+    selectChipValues('caracter', pet.caracter);
+    selectChipValues('cuentoCon', pet.cuentaCon);
+
+    const { anios, meses } = parseEdad(pet.edad);
+    const edadAnios = document.getElementById('edadAnios');
+    const edadMeses = document.getElementById('edadMeses');
+    if (edadAnios) edadAnios.value = anios;
+    if (edadMeses) edadMeses.value = meses;
+
+    if (pet.foto) applyExistingPhoto(pet.foto, pet.nombre);
+
+    if (successCode) successCode.textContent = pet.codigo;
+    if (viewPublicBtn) {
+      viewPublicBtn.href = `../animal/perfil-animal.html?codigo=${encodeURIComponent(pet.codigo)}&from=panel`;
+    }
+    if (resetBtn) resetBtn.textContent = 'Volver al panel';
+  }
+
   window.HuelliMvp?.bindKeyboardOffset(app);
   bindFieldFocusHandlers();
   bindChoiceChips();
+  if (editPet) applyEditPet(editPet);
   updatePhotoLink();
 
   photoTrigger?.addEventListener('click', () => photoInput?.click());
@@ -601,20 +666,19 @@
     }
 
     setSavingState(true);
-    announce('Guardando mascota');
+    announce(editPet ? 'Guardando cambios' : 'Guardando animal');
 
     try {
       await simulateUpload();
 
-      const codigo = 'HU-0001';
-      const publicPath = `../mascota/perfil-mascota.html?codigo=${encodeURIComponent(codigo)}&from=panel`;
+      const codigo = editPet?.codigo || 'HU-0001';
+      const publicPath = `../animal/perfil-animal.html?codigo=${encodeURIComponent(codigo)}&from=panel`;
 
       if (successCode) successCode.textContent = codigo;
-      if (successUrl) successUrl.textContent = `huelli.app/mascota/${codigo}`;
       if (viewPublicBtn) viewPublicBtn.href = publicPath;
 
       await transitionPanels(formPanel, successPanel);
-      announce(`Mascota registrada con código ${codigo}`);
+      announce(editPet ? `Cambios de ${editPet.nombre} guardados` : `Animal registrado con código ${codigo}`);
     } finally {
       progressPanel?.setAttribute('hidden', '');
       progressPanel?.setAttribute('aria-hidden', 'true');
@@ -628,6 +692,11 @@
   });
 
   resetBtn?.addEventListener('click', async () => {
+    if (editPet) {
+      window.location.href = 'panel-albergue.html';
+      return;
+    }
+
     form.reset();
     resetChoiceChips();
     setFieldError('nombre', '');
@@ -642,6 +711,6 @@
     clearConfirmedPreview();
 
     await transitionPanels(successPanel, formPanel);
-    announce('Formulario listo para registrar otra mascota');
+    announce('Formulario listo para registrar otro animal');
   });
 })();
