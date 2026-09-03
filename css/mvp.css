@@ -456,12 +456,6 @@ textarea {
   box-shadow: none;
 }
 
-.mvp-panel .mvp-fab-icon {
-  width: 18px;
-  height: 18px;
-  flex-shrink: 0;
-}
-
 .mvp-panel .mvp-fab-link:hover {
   background: rgba(255, 255, 255, 0.92);
   color: var(--huelli-color-primary-hover);
@@ -717,13 +711,6 @@ textarea {
 .mvp-registro .mvp-form-field,
 .mvp-login .mvp-form-field {
   scroll-margin-top: 24px;
-}
-
-.mvp-form-field.is-focused,
-.mvp-form-field:focus-within,
-.mvp-registro .mvp-form-field.is-focused,
-.mvp-registro .mvp-form-field:focus-within {
-  background: transparent;
 }
 
 .mvp-photo-block {
@@ -1000,8 +987,7 @@ textarea {
   color: var(--huelli-color-placeholder);
 }
 
-.mvp-login-input,
-.mvp-login .mvp-login-input {
+.mvp-login-input {
   border-radius: var(--huelli-radius-control);
   min-height: 44px;
   height: 44px;
@@ -1065,14 +1051,6 @@ textarea {
   transition: background-color 99999s ease-out;
 }
 
-.mvp-login .mvp-login-input::placeholder,
-.mvp-login .mvp-login-input::-webkit-input-placeholder {
-  color: var(--huelli-color-placeholder) !important;
-  -webkit-text-fill-color: var(--huelli-color-placeholder) !important;
-  opacity: 1 !important;
-  font-size: 14px !important;
-}
-
 .mvp-login .mvp-field-icon {
   left: 14px;
   right: auto;
@@ -1105,8 +1083,7 @@ textarea {
   height: 22px;
 }
 
-.mvp-input-soft,
-.mvp-app .huelli-form select.mvp-input-soft {
+.mvp-input-soft {
   border-radius: var(--huelli-radius-lg);
   min-height: 48px;
   height: 48px;
@@ -1122,18 +1099,12 @@ textarea {
 .mvp-input-soft:hover,
 .mvp-input-soft:focus,
 .mvp-input-soft:focus-visible,
-.mvp-input-soft:active,
-.mvp-app .huelli-form select.mvp-input-soft:hover,
-.mvp-app .huelli-form select.mvp-input-soft:focus,
-.mvp-app .huelli-form select.mvp-input-soft:focus-visible,
-.mvp-app .huelli-form select.mvp-input-soft:active {
+.mvp-input-soft:active {
   background: var(--huelli-color-input-fill);
 }
 
 .mvp-input-soft:focus,
-.mvp-input-soft:focus-visible,
-.mvp-app .huelli-form select.mvp-input-soft:focus,
-.mvp-app .huelli-form select.mvp-input-soft:focus-visible {
+.mvp-input-soft:focus-visible {
   border-color: var(--huelli-color-primary);
   outline: 2px solid rgba(4, 155, 102, 0.2);
   outline-offset: 1px;
@@ -1186,18 +1157,6 @@ textarea {
   opacity: 1;
 }
 
-.mvp-app input:-ms-input-placeholder,
-.mvp-app textarea:-ms-input-placeholder {
-  color: #B2BBC0;
-  opacity: 1;
-}
-
-.mvp-app input::-ms-input-placeholder,
-.mvp-app textarea::-ms-input-placeholder {
-  color: #B2BBC0;
-  opacity: 1;
-}
-
 .mvp-app input::placeholder,
 .mvp-app textarea::placeholder {
   color: #B2BBC0;
@@ -1206,10 +1165,7 @@ textarea {
 
 /* Registrar: inputs outline 1px */
 .mvp-registro .mvp-input-soft,
-.mvp-registro .mvp-textarea-soft,
-.mvp-registro .dash-input.mvp-input-soft,
-.mvp-registro .dash-input.mvp-textarea-soft,
-.mvp-registro .registro-age-grid .dash-input {
+.mvp-registro .mvp-textarea-soft {
   border: 1px solid var(--huelli-color-input-border);
   min-height: 44px;
   height: 44px;
@@ -1222,8 +1178,7 @@ textarea {
   transition: border-color 0.28s ease;
 }
 
-.mvp-registro .mvp-textarea-soft,
-.mvp-registro .dash-input.mvp-textarea-soft {
+.mvp-registro .mvp-textarea-soft {
   min-height: 88px;
   height: auto;
   padding-top: 10px;
@@ -1231,23 +1186,14 @@ textarea {
 }
 
 .mvp-registro .mvp-input-soft:hover,
-.mvp-registro .mvp-textarea-soft:hover,
-.mvp-registro .dash-input.mvp-input-soft:hover,
-.mvp-registro .dash-input.mvp-textarea-soft:hover,
-.mvp-registro .registro-age-grid .dash-input:hover {
+.mvp-registro .mvp-textarea-soft:hover {
   border-color: var(--huelli-color-primary);
 }
 
 .mvp-registro .mvp-input-soft:focus,
 .mvp-registro .mvp-input-soft:focus-visible,
 .mvp-registro .mvp-textarea-soft:focus,
-.mvp-registro .mvp-textarea-soft:focus-visible,
-.mvp-registro .dash-input.mvp-input-soft:focus,
-.mvp-registro .dash-input.mvp-input-soft:focus-visible,
-.mvp-registro .dash-input.mvp-textarea-soft:focus,
-.mvp-registro .dash-input.mvp-textarea-soft:focus-visible,
-.mvp-registro .registro-age-grid .dash-input:focus,
-.mvp-registro .registro-age-grid .dash-input:focus-visible {
+.mvp-registro .mvp-textarea-soft:focus-visible {
   border-color: var(--huelli-color-primary);
   background: #fff;
   outline: none;
@@ -1255,12 +1201,8 @@ textarea {
 
 .mvp-registro .mvp-input-soft.is-invalid,
 .mvp-registro .mvp-textarea-soft.is-invalid,
-.mvp-registro .dash-input.mvp-input-soft.is-invalid,
-.mvp-registro .dash-input.mvp-textarea-soft.is-invalid,
-.mvp-registro .registro-age-grid .dash-input.is-invalid,
 .mvp-registro .mvp-form-field.is-invalid .mvp-input-soft,
-.mvp-registro .mvp-form-field.is-invalid .mvp-textarea-soft,
-.mvp-registro .mvp-form-field.is-invalid .dash-input {
+.mvp-registro .mvp-form-field.is-invalid .mvp-textarea-soft {
   border-color: var(--huelli-color-danger);
   outline: 2px solid rgba(229, 72, 77, 0.25);
   outline-offset: 1px;
@@ -1268,22 +1210,12 @@ textarea {
 
 .mvp-registro .mvp-input-soft.is-invalid:hover,
 .mvp-registro .mvp-textarea-soft.is-invalid:hover,
-.mvp-registro .dash-input.mvp-input-soft.is-invalid:hover,
-.mvp-registro .dash-input.mvp-textarea-soft.is-invalid:hover,
-.mvp-registro .registro-age-grid .dash-input.is-invalid:hover,
 .mvp-registro .mvp-form-field.is-invalid .mvp-input-soft:hover,
 .mvp-registro .mvp-form-field.is-invalid .mvp-textarea-soft:hover,
-.mvp-registro .mvp-form-field.is-invalid .dash-input:hover,
 .mvp-registro .mvp-input-soft.is-invalid:focus,
 .mvp-registro .mvp-input-soft.is-invalid:focus-visible,
 .mvp-registro .mvp-textarea-soft.is-invalid:focus,
-.mvp-registro .mvp-textarea-soft.is-invalid:focus-visible,
-.mvp-registro .dash-input.mvp-input-soft.is-invalid:focus,
-.mvp-registro .dash-input.mvp-input-soft.is-invalid:focus-visible,
-.mvp-registro .dash-input.mvp-textarea-soft.is-invalid:focus,
-.mvp-registro .dash-input.mvp-textarea-soft.is-invalid:focus-visible,
-.mvp-registro .registro-age-grid .dash-input.is-invalid:focus,
-.mvp-registro .registro-age-grid .dash-input.is-invalid:focus-visible {
+.mvp-registro .mvp-textarea-soft.is-invalid:focus-visible {
   border-color: var(--huelli-color-danger);
 }
 
@@ -1993,8 +1925,8 @@ body.mvp-modal-open {
 
 .huelli-select-wrap.mvp-status-select-wrap {
   flex: 0 1 auto;
-  width: 8.25rem;
-  max-width: 8.25rem;
+  width: 9.75rem;
+  max-width: 9.75rem;
 }
 
 .mvp-status-select {
@@ -2060,6 +1992,7 @@ body.mvp-modal-open {
   width: 18px;
   height: 18px;
   display: block;
+  flex-shrink: 0;
 }
 
 .mvp-page-back {
@@ -2080,11 +2013,6 @@ body.mvp-modal-open {
 .mvp-page-back svg {
   width: 24px;
   height: 24px;
-}
-
-.mvp-app .page-back {
-  min-width: 44px;
-  min-height: 44px;
 }
 
 @media (min-width: 40rem) {
@@ -2174,11 +2102,6 @@ body.mvp-modal-open {
     width: auto;
     justify-content: flex-end;
     min-width: min-content;
-  }
-
-  .huelli-select-wrap.mvp-status-select-wrap {
-    width: 8.25rem;
-    max-width: 8.25rem;
   }
 }
 
