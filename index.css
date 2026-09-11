@@ -93,7 +93,7 @@ body,
   align-items: center;
   gap: 8px;
   flex: 1 1 200px;
-  max-width: 260px;
+  max-width: 300px;
 }
 
 .fig-node {
@@ -101,7 +101,7 @@ body,
   flex-direction: column;
   gap: 4px;
   min-width: 160px;
-  max-width: 240px;
+  max-width: 280px;
   width: 100%;
   padding: 14px 16px;
   border: 1.5px solid #0a0a0a;
@@ -113,10 +113,16 @@ body,
   transition: transform 0.12s ease, background-color 0.12s ease;
 }
 
-.fig-node:hover {
+a.fig-node:hover,
+.fig-node:not(.fig-node--dashed):has(.fig-node-link:hover) {
   background: rgba(4, 155, 102, 0.12);
   transform: translate(-1px, -1px);
   box-shadow: 3px 3px 0 #0a0a0a;
+}
+
+.fig-node-link {
+  color: inherit;
+  text-decoration: none;
 }
 
 .fig-node--main {
@@ -142,10 +148,29 @@ body,
   letter-spacing: -0.02em;
 }
 
-.fig-node span {
+.fig-node span,
+.fig-fields {
   font-size: 12px;
-  line-height: 1.35;
+  line-height: 1.45;
   color: #555;
+}
+
+.fig-fields {
+  margin: 2px 0 0;
+  padding: 0;
+  list-style: none;
+  user-select: text;
+  cursor: text;
+}
+
+.fig-fields li {
+  margin: 0;
+}
+
+.fig-fields ul {
+  margin: 0;
+  padding: 0 0 0 12px;
+  list-style: none;
 }
 
 .fig-arrow,
