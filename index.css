@@ -114,6 +114,11 @@ body,
   transition: transform 0.12s ease, background-color 0.12s ease;
 }
 
+.fig-node,
+.fig-node * {
+  cursor: pointer;
+}
+
 .fig-node:hover {
   background: rgba(4, 155, 102, 0.12);
   transform: translate(-1px, -1px);
